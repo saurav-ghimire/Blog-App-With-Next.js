@@ -1,14 +1,14 @@
-// "use client";
+"use client";
 import Image from "next/image";
 import styles from "./contact.module.css";
+import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Contact Page",
-  description: "Contact description",
-};
+// export const metadata = {
+//   title: "Contact Page",
+//   description: "Contact description",
+// };
 
 const Contact = () => {
-  
 
   return (
     <div className={styles.container}>
@@ -17,6 +17,7 @@ const Contact = () => {
       </div>
       <div className={styles.formContainer}>
         <form action="" className={styles.form}>
+          
           <input type="text" placeholder="Name and Surname" />
           <input type="text" placeholder="Email Address" />
           <input type="text" placeholder="Phone Number (Optional)" />
