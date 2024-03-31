@@ -1,0 +1,20 @@
+.menulinks{
+  text-transform: capitalize;
+  margin-left: 20px;
+  padding: 8px 20px;
+  background-color: transparent;
+  border-radius: 20px;
+  transition: all linear .3s;
+}
+.activeMenuLinks{
+  background-color: #fff;
+  color: var(--bgSoft);
+}
+.menulinks:hover{
+  background-color: #fff;
+  color: var(--bgSoft);
+}
+.menulinks:last-child{
+  background-color: #fff;
+  color: var(--bgSoft);
+}

@@ -1,30 +1,35 @@
-import Link from "next/link";
+import NavbarLink from "../navBarLink/navbarLinks";
 
 function Links() {
-  const menuLink = [
-    {
-      title: 'home',
-      path: '/'
-    },
-    {
-      title: 'about',
-      path: '/about'
-    },{
-      title: 'contact',
-      path: '/contact'
-    },
-    {
-      title: 'blog',
-      path: '/blog'
-    }
+  const menuLinks = [
+    { title: 'home', path: '/' },
+    { title: 'about', path: '/about' },
+    { title: 'contact', path: '/contact' },
+    { title: 'blog', path: '/blog' }
+  ];
 
-  ]
-  return <> {
-    menuLink.map(data => (
-      <Link href={data.path}>{data.title}</Link>
-    ))
-  }
-  </>;
+  const session = false;
+  const isAdmin = false;
+
+  return (
+    <div>
+      {/* Render regular menu links */}
+      {menuLinks.map(data => (
+        <NavbarLink key={data.title} item={data} />
+      ))}
+
+      {/* Conditional Rendering for Admin and Logout Links */}
+      {session && (
+        <>
+          {isAdmin && <NavbarLink item={{ title: 'Admin', path: '/admin' }} />}
+          <NavbarLink item={{ title: 'Logout', path: '/logout' }} />
+        </>
+      )}
+
+      {/* Show Login if not in session */}
+      {!session && <NavbarLink item={{ title: 'Login', path: '/login' }} />}
+    </div>
+  );
 }
 
 export default Links;
