@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./postUser.module.css";
 
 async function PostUser({userId}) {
-  const data = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+  const data = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`,{cache:"no-store"});
   const user = await data.json();
   console.log(user)
 
