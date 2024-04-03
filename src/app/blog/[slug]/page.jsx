@@ -6,10 +6,23 @@ import PostUser from "@/components/PostUser/page";
 import { Suspense } from "react";
 import { getPost } from "@/lib/data";
 
+// FETCH DATA WITH AN API
+const getData = async (slug) => {
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
+
+  if (!res.ok) {
+    throw new Error("Something went wrong");
+  }
+
+  return res.json();
+};
+
 const SinglePostPage = async ({ params }) => {
-  
-  const fetchedData = await getPost(params.slug);
-  console.log(fetchedData)
+  const { slug } = params;
+
+  // FETCH DATA WITH AN API
+  const fetchedData = await getData(slug)
+  // const fetchedData = await getPost(params.slug);
   
   return (
     <div className={styles.container}>
@@ -23,7 +36,7 @@ const SinglePostPage = async ({ params }) => {
         <h1 className={styles.title}>{fetchedData.title}</h1>
         <div className={styles.detail}>
         {/* <Suspense fallback={<div>Loading...</div>}>
-        <PostUser userId={fetchedData.userId} />
+          <PostUser userId={fetchedData.userId} />
         </Suspense> */}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
