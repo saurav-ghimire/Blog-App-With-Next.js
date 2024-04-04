@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
 
 const connection = {
-  isConnected: false,
-  mongo: process.env.MONGO,
-  
+  isConnected: false  
 };
 
 export const connectToDb = async () => {
