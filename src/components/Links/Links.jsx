@@ -9,7 +9,8 @@ function Links() {
     { title: 'home', path: '/' },
     { title: 'about', path: '/about' },
     { title: 'contact', path: '/contact' },
-    { title: 'blog', path: '/blog' }
+    { title: 'blog', path: '/blog' },
+    { title: 'login', path: '/login' }
   ];
 
   const session = true;
